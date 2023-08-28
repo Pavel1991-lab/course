@@ -1,0 +1,24 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+
+{% block content %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Садовод</h1>
+    <p class="lead">Садовод - это отличный магазин для покупки овощей, фруктов, ягод</p>
+</div>
+
+<div class="container">
+    <div class="row text-center">
+        {% if request.user.is_authenticated %}
+        <div class="col-12">
+            <p>Вы уже зарегистрированы.</p>
+        </div>
+        {% else %}
+        <div class="col-12">
+            <a class="btn btn-primary" href="{% url 'registration:register' %}">Зарегистрироваться</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %
